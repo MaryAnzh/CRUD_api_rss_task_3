@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+node_modules/
+dist/
+.env
+coverage/
+*.log
+*.lock
+.DS_Store
+=======
+*lock.*
+
+# Dependency directories
+node_modules
+package-lock.*
+
+# dotenv environment variable files
+.env
+.env.*
+!.env.example
+
+dist
+>>>>>>> 3a9ec26 (refactor: refactor gitignore)

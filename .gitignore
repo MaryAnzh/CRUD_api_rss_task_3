@@ -1,7 +1,9 @@
-*lock.*
 node_modules
 package-lock.*
+dist
+
+# dotenv environment variable files
 .env
-coverage/
-*.log
-*.lock
+.env.*
+!.env.example
+
