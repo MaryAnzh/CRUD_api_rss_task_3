@@ -1,0 +1,45 @@
+{
+  "name": "crud_api_rss_task_3",
+  "version": "1.0.0",
+  "description": "RS School Task CRUD API",
+  "homepage": "https://github.com/MaryAnzh/CRUD_api_rss_task_3#readme",
+  "bugs": {
+    "url": "https://github.com/MaryAnzh/CRUD_api_rss_task_3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaryAnzh/CRUD_api_rss_task_3.git"
+  },
+  "author": "MaryAnzh",
+  "type": "module",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "fastify": "^5.8.2",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-typescript": "^7.28.5",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.5.0",
+    "@types/supertest": "^7.2.0",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "eslint": "^10.0.3",
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
