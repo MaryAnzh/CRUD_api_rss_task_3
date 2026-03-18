@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "~db/*": ["db/*"],
+      "~routes/*": ["routes/*"],
+      "~controllers/*": ["controllers/*"],
+      "~utils/*": ["utils/*"],
+      "~types": ["types"],
+      "~types/*": ["types/*"]
+    }
+  }
+}

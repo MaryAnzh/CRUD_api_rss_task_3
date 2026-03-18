@@ -12,11 +12,16 @@
   },
   "author": "MaryAnzh",
   "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "start:dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start:prod": "npm run build && node dist/index.js",
+    "test": "jest",
+    "lint": "eslint . --ext .ts"
+  },
   "directories": {
     "test": "tests"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "dotenv": "^17.3.1",
@@ -24,10 +29,6 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.28.6",
-    "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
-    "@babel/preset-typescript": "^7.28.5",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.5.0",
     "@types/supertest": "^7.2.0",
@@ -38,8 +39,7 @@
     "jest": "^30.3.0",
     "supertest": "^7.2.2",
     "ts-jest": "^29.4.6",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.9.3"
   }
 }
