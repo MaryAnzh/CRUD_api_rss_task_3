@@ -1,10 +1,16 @@
 import type { Product } from "~types";
 import { v4 as uuidV4 } from "uuid";
+import * as C from "~constants";
 
 export class ProductsRepository {
-    #products: Product[] = [];
+    #products: Product[];
+
+    constructor(products: Product[]) {
+        this.#products = products;
+    }
 
     getAll(): Product[] {
+        console.log("Getting all products work");
         return this.#products;
     }
 
@@ -43,4 +49,4 @@ export class ProductsRepository {
     }
 }
 
-export const productsRepository = new ProductsRepository();
+export const productsRepository = new ProductsRepository(C.START_DATA);

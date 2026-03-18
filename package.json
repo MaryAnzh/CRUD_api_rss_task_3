@@ -17,8 +17,14 @@
     "start:dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start:prod": "npm run build && node dist/index.js",
+    "compiler": "tsc --noEmit",
+    "lint": "eslint . --ext .ts",
     "test": "jest",
-    "lint": "eslint . --ext .ts"
+    "api:get": "curl http://localhost:3000/api/products",
+    "api:get:id": "curl http://localhost:3000/api/products/%npm_config_id%",
+    "api:post": "curl -X POST http://localhost:3000/api/products -H \"Content-Type: application/json\" -d @tests/postBody.json",
+    "api:put": "curl -X PUT http://localhost:3000/api/products/%npm_config_id% -H \"Content-Type: application/json\" -d @tests/putBody.json",
+    "api:delete": "curl -X DELETE http://localhost:3000/api/products/%npm_config_id%"
   },
   "directories": {
     "test": "tests"

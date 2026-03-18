@@ -8,6 +8,7 @@ module.exports = {
         }
     },
     moduleNameMapper: {
+        "^~constants$": "<rootDir>/src/constants.ts",
         "^~db/(.*)$": "<rootDir>/src/db/$1",
         "^~routes/(.*)$": "<rootDir>/src/routes/$1",
         "^~controllers/(.*)$": "<rootDir>/src/controllers/$1",

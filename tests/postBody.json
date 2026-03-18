@@ -1,0 +1,7 @@
+{
+    "name": "test product",
+    "price": 100,
+    "description": "test description",
+    "category": "test category",
+    "inStock": true
+}
