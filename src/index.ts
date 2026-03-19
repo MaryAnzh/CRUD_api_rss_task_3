@@ -1,6 +1,6 @@
 import Fastify from "fastify";
-import { productsRoutes } from "~routes";
-import * as C from "~constants";
+import { productsRoutes } from "./routes/index";
+import * as C from "./constants/index";
 
 import dotenv from "dotenv";
 dotenv.config();

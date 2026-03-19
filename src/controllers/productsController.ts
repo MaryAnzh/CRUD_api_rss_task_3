@@ -1,9 +1,9 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
-import type { Product } from "~types";
+import type { Product } from "../types/index";
 
-import * as C from "~constants";
+import * as C from "../constants/index";
 
-import { productsRepository as R } from "~db";
+import { productsRepository as R } from "../db/index";
 
 
 export const getAllProducts = async (_req: FastifyRequest, reply: FastifyReply) => {

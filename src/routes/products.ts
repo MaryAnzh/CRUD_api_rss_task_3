@@ -1,6 +1,6 @@
 import type { FastifyInstance } from "fastify";
 
-import * as C from "~controllers";
+import * as C from "../controllers/index";
 
 export async function productsRoutes(app: FastifyInstance) {
     app.get("/", C.getAllProducts);

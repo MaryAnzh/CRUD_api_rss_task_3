@@ -1,6 +1,6 @@
-import type { Product } from "~types";
+import type { Product } from "../types/index";
 import { v4 as uuidV4 } from "uuid";
-import * as C from "~constants";
+import * as C from "../constants/index";
 
 export class ProductsRepository {
     #products: Product[];
