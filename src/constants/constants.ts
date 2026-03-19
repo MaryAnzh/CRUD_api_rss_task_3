@@ -1,11 +1,22 @@
+// in big projects, it's common to have a constants file to store all the constant values used throughout the application. 
+// This helps to keep the code organized and makes it easier to manage and update constant values in one place.
+/** dictionary */
 export const {
-    PRODUCT_NOT_FOUND
+    PRODUCT_NOT_FOUND,
+    SERVER_RUNNING_MASSAGE
 }
     =
 {
-    PRODUCT_NOT_FOUND: 'Product not found'
+    PRODUCT_NOT_FOUND: 'Product not found',
+    SERVER_RUNNING_MASSAGE: 'Server running on port',
 };
 
+/** Routes */
+export const APP_ROUTE = '/api/products';
+export const APP_PORT = 3000;
+export const APP_PORT_TEST = 3001;
+
+/** product data */
 export const START_DATA = [
     {
         id: '123_example',

@@ -1,12 +1,13 @@
 import Fastify from "fastify";
 import { productsRoutes } from "~routes";
+import * as C from "~constants";
 
 import dotenv from "dotenv";
 dotenv.config();
-// if .env  work - 3000 (code get from .env, not fom env.example), if doesn't - 3001
-const port = Number(process.env.PORT) || 3001;
 
-const app = Fastify({
+const port = Number(process.env.PORT) || C.APP_PORT_TEST;
+
+export const app = Fastify({
     logger: true
 });
 
@@ -20,8 +21,10 @@ if (process.env.NODE_ENV !== "production") {
     });
 }
 
-app.register(productsRoutes, { prefix: "/api/products" });
+app.register(productsRoutes, { prefix: C.APP_ROUTE });
 
-app.listen({ port }).then(() => {
-    console.log(`Server running on port ${port}`);
-});
+if (process.env.JEST_WORKER_ID === undefined) {
+    app.listen({ port }).then(() => {
+        console.log(`${C.SERVER_RUNNING_MASSAGE} ${port}`);
+    });
+}
