@@ -12,16 +12,31 @@ The final solution is submitted as a PR from `develop` to `main`.
 
 ---
 
-## 🚀 Installation & Running the Server
+## 🚀 Installation & Running scripts
 
 ```bash
 git clone https://github.com/MaryAnzh/CRUD_api_rss_task_3.git
 cd CRUD_api_rss_task_3
 git checkout develop
 npm install
+
+for development mode:
 npm run start:dev
 The server will start at:
 http://localhost:3000
+
+for production mode:
+npm run build
+npm run start:prod
+
+for test:
+npm run test (Available 8 tests)
+
+for ts check:
+mpm run compiler
+
+for lint:
+npm run lint
 
 📌 Available Endpoints
 GET: /api/products -- Get all products
@@ -40,22 +55,23 @@ body: {
 
 
 🧪 How to Test the API
-You can test the API using three different methods.
+You can test the API using 4 different methods.
 
-1. 🟦 Postman / Insomnia (recommended)
+1. npm test;
+2. Postman / Insomnia (recommended)
 This is the easiest way:
 
 for POST/PUT, provide a JSON body
 
 
-2. 🌐 Browser (GET only)
+3. Browser (GET only)
 Browsers can only send GET requests, so only these endpoints work:
 
 http://localhost:3000/api/products
 http://localhost:3000/api/products/<productId>
 POST, PUT, and DELETE cannot be tested in a browser.
 
-3. 🟩 Using npm scripts (Windows PowerShell, macOS, Linux)
+4. Using npm scripts (Windows PowerShell, macOS, Linux)
 The project includes convenient npm scripts for testing all CRUD operations.
 
 JSON bodies for POST and PUT are stored in:

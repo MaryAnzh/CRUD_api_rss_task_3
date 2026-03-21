@@ -1,8 +1,8 @@
 import Fastify from "fastify";
 import { productsRoutes } from "./routes/index";
 import * as C from "./constants/index";
-
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const port = Number(process.env.PORT) || C.APP_PORT_TEST;
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV !== "production") {
 
 app.register(productsRoutes, { prefix: C.APP_ROUTE });
 
-if (process.env.JEST_WORKER_ID === undefined) {
+if (!process.env.WORKER_MODE && !process.env.JEST_WORKER_ID) {
     app.listen({ port }).then(() => {
         console.log(`${C.SERVER_RUNNING_MASSAGE} ${port}`);
     });
