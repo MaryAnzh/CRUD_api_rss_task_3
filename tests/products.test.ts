@@ -13,8 +13,8 @@ const PRODUCT_REQUIRED_FIELDS = Object.fromEntries(
 let createdId = "";
 
 beforeAll(async () => {
-    const port = await app.listen({ port: C.APP_PORT_TEST });
-    console.log(`${C.SERVER_RUNNING_MASSAGE} ${port}`);
+    const port = await app.listen({ port: C.APP_PORT });
+    console.log(`From test - ${C.SERVER_RUNNING_MASSAGE} ${port}`);
 });
 
 afterAll(async () => {
@@ -24,7 +24,7 @@ afterAll(async () => {
 
 describe("Scenario 1 — create and get product", () => {
     test("POST /api/products — create product", async () => {
-        const response = await fetch(BASE_URL(C.APP_PORT_TEST, C.APP_ROUTE), {
+        const response = await fetch(BASE_URL(C.APP_PORT, C.APP_ROUTE), {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(testBody)
@@ -41,7 +41,7 @@ describe("Scenario 1 — create and get product", () => {
 
     test("GET /api/products/:id — get created product", async () => {
         const response = await fetch(
-            `http://localhost:${C.APP_PORT_TEST}${C.APP_ROUTE}/${createdId}`
+            `http://localhost:${C.APP_PORT}${C.APP_ROUTE}/${createdId}`
         );
 
         expect(response.status).toBe(200);
@@ -55,7 +55,7 @@ describe("Scenario 1 — create and get product", () => {
 
 describe("Scenario 2 — get all products", () => {
     test("GET /api/products — should return array", async () => {
-        const response = await fetch(BASE_URL(C.APP_PORT_TEST, C.APP_ROUTE));
+        const response = await fetch(BASE_URL(C.APP_PORT, C.APP_ROUTE));
         expect(response.status).toBe(200);
 
         const body = await response.json();
@@ -67,7 +67,7 @@ describe("Scenario 2 — get all products", () => {
 describe("Scenario 3 — update product", () => {
     test("PUT /api/products/:id — update created product", async () => {
         const response = await fetch(
-            `${BASE_URL(C.APP_PORT_TEST, C.APP_ROUTE)}/${createdId}`,
+            `${BASE_URL(C.APP_PORT, C.APP_ROUTE)}/${createdId}`,
             {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
@@ -87,7 +87,7 @@ describe("Scenario 3 — update product", () => {
 describe("Scenario 4 — get updated product", () => {
     test("GET /api/products/:id — should return updated product", async () => {
         const response = await fetch(
-            `${BASE_URL(C.APP_PORT_TEST, C.APP_ROUTE)}/${createdId}`
+            `${BASE_URL(C.APP_PORT, C.APP_ROUTE)}/${createdId}`
         );
 
         expect(response.status).toBe(200);
@@ -101,7 +101,7 @@ describe("Scenario 4 — get updated product", () => {
 describe("Scenario 5 — validate product structure", () => {
     test("GET /api/products/:id — product has all required fields with correct types", async () => {
         const response = await fetch(
-            `${BASE_URL(C.APP_PORT_TEST, C.APP_ROUTE)}/${createdId}`
+            `${BASE_URL(C.APP_PORT, C.APP_ROUTE)}/${createdId}`
         );
 
         expect(response.status).toBe(200);
@@ -121,7 +121,7 @@ describe("Scenario 5 — validate product structure", () => {
 describe("Scenario 6 — delete product", () => {
     test("DELETE /api/products/:id — delete created product", async () => {
         const response = await fetch(
-            `${BASE_URL(C.APP_PORT_TEST, C.APP_ROUTE)}/${createdId}`,
+            `${BASE_URL(C.APP_PORT, C.APP_ROUTE)}/${createdId}`,
             { method: "DELETE" }
         );
 
@@ -132,7 +132,7 @@ describe("Scenario 6 — delete product", () => {
 describe("Scenario 7 — get deleted product", () => {
     test("GET /api/products/:id — should return 404", async () => {
         const response = await fetch(
-            `${BASE_URL(C.APP_PORT_TEST, C.APP_ROUTE)}/${createdId}`
+            `${BASE_URL(C.APP_PORT, C.APP_ROUTE)}/${createdId}`
         );
 
         expect(response.status).toBe(404);
@@ -142,7 +142,7 @@ describe("Scenario 7 — get deleted product", () => {
 describe("Scenario 8 — error handling", () => {
     test("GET /api/products/:id — should return error for non-existing product", async () => {
         const response = await fetch(
-            `${BASE_URL(C.APP_PORT_TEST, C.APP_ROUTE)}/${PRODUCT_NOT_FOUND_ID}`
+            `${BASE_URL(C.APP_PORT, C.APP_ROUTE)}/${PRODUCT_NOT_FOUND_ID}`
         );
 
         expect(response.status).toBe(404);

@@ -5,10 +5,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const port = Number(process.env.PORT) || C.APP_PORT_TEST;
+const port = C.APP_PORT; // 3000
 
 export const app = Fastify({
-    logger: true
+    logger: !process.env.WORKER_MODE
 });
 
 if (process.env.NODE_ENV !== "production") {
