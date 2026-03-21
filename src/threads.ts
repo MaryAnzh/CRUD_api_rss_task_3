@@ -12,6 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const MAIN_PORT = Number(process.env.PORT) || C.APP_PORT;
+console.log(`mode: ${process.env.NODE_ENV}`);
 const WORKERS_COUNT = os.cpus().length;
 console.log(`WORKERS_COUNT: ${WORKERS_COUNT}`);
 const FIRST_WORKER_PORT = C.FIRST_WORKER_PORT;

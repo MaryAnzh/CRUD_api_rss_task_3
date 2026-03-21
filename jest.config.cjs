@@ -1,8 +1,14 @@
 module.exports = {
-    transform: {
-        "^.+\\.ts$": ["babel-jest", { configFile: "./babel.config.cjs" }]
-    },
+    preset: "ts-jest/presets/default-esm",
     testEnvironment: "node",
-    moduleFileExtensions: ["ts", "js"],
-    roots: ["<rootDir>/tests"]
+    extensionsToTreatAsEsm: [".ts"],
+    transform: {
+        "^.+\\.ts$": [
+            "ts-jest",
+            {
+                useESM: true,
+                tsconfig: "tsconfig.json"
+            }
+        ]
+    }
 };

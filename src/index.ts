@@ -25,6 +25,7 @@ app.register(productsRoutes, { prefix: C.APP_ROUTE });
 
 if (!process.env.WORKER_MODE && !process.env.JEST_WORKER_ID) {
     app.listen({ port }).then(() => {
+        console.log(`mode: ${process.env.NODE_ENV}`);
         console.log(`${C.SERVER_RUNNING_MASSAGE} ${port}`);
     });
 }

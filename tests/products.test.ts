@@ -1,7 +1,7 @@
 import { beforeAll, afterAll, describe, expect, test } from "@jest/globals";
 
-import { app } from "../src";
-import * as C from '../src/constants';
+import { app } from "../src/index";
+import * as C from '../src/constants/index';
 
 import testBody from "./postBody.json";
 import { BASE_URL, PRODUCT_NOT_FOUND_ID, UPDATED_PRODUCT } from "./constants";

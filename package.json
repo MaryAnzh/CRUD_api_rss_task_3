@@ -13,7 +13,8 @@
   "scripts": {
     "start:dev": "cross-env NODE_ENV=development tsx src/index.ts",
     "build": "babel src --extensions \".ts\" --out-dir dist --copy-files",
-    "start:prod": "npm run build && cross-env NODE_ENV=production node dist/threads.js",
+    "start:prod": "npm run build && cross-env NODE_ENV=production node dist/index.js",
+    "start:multi": "npm run build && cross-env NODE_ENV=production node dist/threads.js",
     "test": "jest",
     "lint": "eslint . --ext .ts",
     "compiler": "tsc --noEmit",
