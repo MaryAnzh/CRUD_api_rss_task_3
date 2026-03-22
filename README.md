@@ -1,51 +1,69 @@
 # CRUD API — RS School Task 3
 
-This project is an implementation of a simple CRUD API without a database, completed as part of the RS School Node.js course.
+Implementation of a simple CRUD API without a database, completed as part of the RS School Node.js course.
 
-**Task link:**  
+Task:  
 https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments-v2/03-crud-api/assignment.md
 
-**Task period:** 16.03.2026 — 23.03.2026  
-**Main branch:** `main`  
-**Development branch:** `develop`  
-The final solution is submitted as a PR from `develop` to `main`.
+Task period: 16.03.2026 — 23.03.2026
+Branches:
 
----
+main — final
 
-## 🚀 Installation & Running scripts
+develop — development (submitted as PR to main)
 
-```bash
+📦 Installation
+bash
 git clone https://github.com/MaryAnzh/CRUD_api_rss_task_3.git
 cd CRUD_api_rss_task_3
 git checkout develop
 npm install
 
-for development mode:
+🚀 Available Scripts
+Development mode
+bash
 npm run start:dev
-The server will start at:
-http://localhost:3000
+Server: http://localhost:<env.PORT>
 
-for production mode:
+Production mode
+bash
 npm run build
+
 npm run start:prod
+<env.PORT>
 
-for test:
-npm run test (Available 8 tests)
+Multi‑process mode (balancer + workers)
+bash
+npm run start:multi
+<env.PORT+1>
+Balancer: http://localhost:3001
+Workers: 4001–4004
 
-for ts check:
-mpm run compiler
+Tests
+bash
+npm run build
+npm test
+Total tests: 11
 
-for lint:
+TypeScript check
+bash
+npm run compiler
+
+Lint
+bash
 npm run lint
 
-📌 Available Endpoints
-GET: /api/products -- Get all products
-GET: /api/products/:id -- Get product by ID
-POST: /api/products -- Create a new product
-PUT: /api/products/:id -- Update product by ID
-DELETE: /api/products/:id -- Delete product by ID
+📌 API Endpoints
+Method	Endpoint	Description
+GET	/api/products	Get all products
+GET	/api/products/:id	Get product by ID
+POST	/api/products	Create product
+PUT	/api/products/:id	Update product
+DELETE	/api/products/:id	Delete product
 
-body: {
+Request body (POST/PUT)
+json
+{
   "name": "Test Product",
   "price": 100,
   "description": "Test description",
@@ -53,61 +71,78 @@ body: {
   "inStock": true
 }
 
+🧪 Test Overview
+1. env.test.ts
+Validates environment configuration:
 
-🧪 How to Test the API
-You can test the API using 4 different methods.
+.env is loaded correctly
 
-1. npm test;
-2. Postman / Insomnia (recommended)
-This is the easiest way:
+APP_PORT matches .env
 
-for POST/PUT, provide a JSON body
+type checks for numeric values
 
+2. products.test.ts
+Validates CRUD functionality:
 
-3. Browser (GET only)
-Browsers can only send GET requests, so only these endpoints work:
+create product
 
+get by ID
+
+get all
+
+update
+
+delete
+
+correct HTTP status codes
+
+3. multiMode.test.ts
+Validates multi‑process mode:
+
+balancer and workers start correctly
+
+round‑robin request distribution
+
+correct x-worker-port header
+
+no ERR_HTTP_HEADERS_SENT or ECONNRESET errors
+
+🧪 Manual API Testing
+1. Postman / Insomnia (recommended)
+Use JSON body for POST/PUT.
+
+2. Browser (GET only)
 http://localhost:3000/api/products
-http://localhost:3000/api/products/<productId>
-POST, PUT, and DELETE cannot be tested in a browser.
+http://localhost:3000/api/products/<id>
 
-4. Using npm scripts (Windows PowerShell, macOS, Linux)
-The project includes convenient npm scripts for testing all CRUD operations.
+3. CLI scripts
+JSON bodies:
 
-JSON bodies for POST and PUT are stored in:
 tests/postBody.json
+
 tests/putBody.json
 
-✔ GET — all products
+GET all
 bash
 npm run api:get
-
-✔ GET — by ID
+GET by ID
 bash
 npm run api:get:id --id=<productId>
-
-Example:
-npm run api:get:id --id=124_example
-
-✔ POST — create a product
+POST
 bash
 npm run api:post
-The request body is taken from:
-tests/postBody.json
-
-✔ PUT — update a product
+PUT
 bash
 npm run api:put --id=<productId>
-
-Example:
-npm run api:put --id=124_example
-The request body is taken from:
-tests/putBody.json
-
-✔ DELETE — remove a product
+DELETE
 bash
 npm run api:delete --id=<productId>
+If you want, I can also add:
 
-Example:
-npm run api:delete --id=124_example
-npm run api:put --id=123_example
+an Architecture section (Fastify + worker_threads + balancer)
+
+a diagram of request flow
+
+a Configuration section describing all env variables
+
+Just tell me what you'd like to include.

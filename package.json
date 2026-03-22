@@ -24,9 +24,6 @@
     "api:put": "curl -X PUT http://localhost:3000/api/products/%npm_config_id% -H \"Content-Type: application/json\" -d @tests/putBody.json",
     "api:delete": "curl -X DELETE http://localhost:3000/api/products/%npm_config_id%"
   },
-  "directories": {
-    "test": "tests"
-  },
   "dependencies": {
     "dotenv": "^17.3.1",
     "fastify": "^5.8.2",
