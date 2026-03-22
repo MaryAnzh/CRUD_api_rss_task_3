@@ -5,7 +5,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const port = C.APP_PORT; // 3000
+const port = Number(process.env.PORT) ?? C.APP_PORT; // 3000
+console.log(Number(process.env.PORT));
 
 export const app = Fastify({
     logger: !process.env.WORKER_MODE

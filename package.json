@@ -15,7 +15,7 @@
     "build": "babel src --extensions \".ts\" --out-dir dist --copy-files",
     "start:prod": "npm run build && cross-env NODE_ENV=production node dist/index.js",
     "start:multi": "npm run build && cross-env NODE_ENV=production node dist/threads.js",
-    "test": "jest",
+    "test": "cross-env NODE_ENV=test jest",
     "lint": "eslint . --ext .ts",
     "compiler": "tsc --noEmit",
     "api:get": "curl http://localhost:3000/api/products",
