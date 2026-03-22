@@ -1,7 +1,9 @@
-node_modules/
-dist/
+node_modules
+package-lock.*
+dist
+
+# dotenv environment variable files
 .env
-coverage/
-*.log
-*.lock
-.DS_Store
+.env.*
+!.env.example
+

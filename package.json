@@ -3,43 +3,53 @@
   "version": "1.0.0",
   "description": "RS School Task CRUD API",
   "homepage": "https://github.com/MaryAnzh/CRUD_api_rss_task_3#readme",
-  "bugs": {
-    "url": "https://github.com/MaryAnzh/CRUD_api_rss_task_3/issues"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaryAnzh/CRUD_api_rss_task_3.git"
   },
-  "author": "MaryAnzh",
+  "author": "Marya Vashchayeva (MaryAnzh)",
+  "main": "dist/index.js",
   "type": "module",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "cross-env NODE_ENV=development tsx src/index.ts",
+    "build": "babel src --extensions \".ts\" --out-dir dist --copy-files",
+    "start:prod": "npm run build && cross-env NODE_ENV=production node dist/index.js",
+    "start:multi": "npm run build && cross-env NODE_ENV=production node dist/threads.js",
+    "test": "cross-env NODE_ENV=test jest",
+    "lint": "eslint . --ext .ts",
+    "compiler": "tsc --noEmit",
+    "api:get": "curl http://localhost:3000/api/products",
+    "api:get:id": "curl http://localhost:3000/api/products/%npm_config_id%",
+    "api:post": "curl -X POST http://localhost:3000/api/products -H \"Content-Type: application/json\" -d @tests/postBody.json",
+    "api:put": "curl -X PUT http://localhost:3000/api/products/%npm_config_id% -H \"Content-Type: application/json\" -d @tests/putBody.json",
+    "api:delete": "curl -X DELETE http://localhost:3000/api/products/%npm_config_id%"
   },
   "dependencies": {
     "dotenv": "^17.3.1",
     "fastify": "^5.8.2",
-    "uuid": "^13.0.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.2",
     "@babel/preset-typescript": "^7.28.5",
+    "@babel/register": "^7.28.6",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.5.0",
     "@types/supertest": "^7.2.0",
     "@types/uuid": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
+    "babel-jest": "^30.3.0",
+    "babel-plugin-add-import-extension": "^1.6.0",
+    "cross-env": "^10.1.0",
     "eslint": "^10.0.3",
     "jest": "^30.3.0",
     "supertest": "^7.2.2",
+    "tree-kill": "^1.2.2",
     "ts-jest": "^29.4.6",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }
