@@ -3,6 +3,7 @@ module.exports = {
     testEnvironment: "node",
     extensionsToTreatAsEsm: [".ts"],
     "verbose": true,
+    "maxWorkers": 1,
     transform: {
         "^.+\\.ts$": [
             "ts-jest",

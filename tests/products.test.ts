@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 import { beforeAll, afterAll, describe, expect, test } from "@jest/globals";
 
 import { app } from "../src/index";

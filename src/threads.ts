@@ -13,7 +13,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const envPort = Number(process.env.PORT);
-const MAIN_PORT = Number(envPort + 1) ?? C.APP_PORT_TEST;
+const MAIN_PORT = process.env.NODE_ENV === 'test'
+    ? C.APP_PORT_TEST
+    : Number(envPort)
+        ? Number(envPort)
+        : C.APP_PORT;
+
 const WORKERS_COUNT = os.cpus().length;
 const FIRST_WORKER_PORT = C.FIRST_WORKER_PORT;
 

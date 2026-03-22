@@ -15,6 +15,8 @@ const EXPECTED_ORDER = Array.from({ length: WORKERS_COUNT + 1 }, (_, i) =>
 );
 
 beforeAll(async () => {
+    jest.setTimeout(15000);
+
     await new Promise<void>((resolve, reject) => {
         const threadsPath = path.resolve("dist/threads.js");
 
@@ -29,6 +31,7 @@ beforeAll(async () => {
             const text = data.toString();
 
             if (text.includes("Balancer on")) {
+                console.log(text);
                 balancerReady = true;
             }
 
